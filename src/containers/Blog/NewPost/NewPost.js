@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import axios from 'axios';
 // getting axios from my own instance
-import axios from '../../axios';
+import axios from '../../../axios';
 
 import './NewPost.css';
 
