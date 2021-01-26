@@ -39,7 +39,6 @@ class FullPost extends Component {
     }
 
     render () {
-        
         let post = <p style={{ textAlign: 'center' }}>Please select a Post!</p>;
 
         if(this.props.match.params.id){
