@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 
 import Posts from './Posts/Posts';
 //import Post from '../../components/Post/Post';
-//import FullPost from '../../components/FullPost/FullPost';
+import FullPost from './FullPost/FullPost';
 import NewPost from './NewPost/NewPost';
 import './Blog.css';
-
-
 
 class Blog extends Component {
     render () {
@@ -16,34 +14,20 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to={{
+                            <li><NavLink 
+                                exact 
+                                to="/" >Home</NavLink></li>
+                            <li><NavLink to={{
                                 pathname: '/new-post',
                                 hash: '#submit',
                                 search: '?quick-submit=true'
-                            }}>New Post</Link></li>
+                            }}>New Post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
-                {/* evaluates full apth to be exact the given path 
-                <Route path="/" exact render={() => <Posts />} />
-                <Route path="/new-post" exact render={() => <h1>New Post</h1> }/>
-                */}
-
                 <Route path="/" exact component={Posts} />
-                <Route path="/new-post" exact component={NewPost} />
-                {/* 
-
-
-                <section>
-                    <FullPost 
-                        id={this.state.selectedPostId}
-                         />
-                </section>
-                <section>
-                    <NewPost />
-                </section>
-                */}
+                <Route path="/new-post" component={NewPost} />
+                <Route path="/post/:id" exact component={FullPost} />
             </div>
         );
     }

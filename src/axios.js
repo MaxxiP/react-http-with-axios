@@ -11,7 +11,7 @@ instance.defaults.headers.common['Authorization'] = 'AUTH_TOKEN_FROM_INSTANCE';
 //instance.defaults.headers.post['Content-Type'] = 'application/json';
 
 instance.interceptors.request.use(request => {
-    console.log(request);
+    //console.log(request);
     // Has to be returned, otherwise no request config will be received back
     // add authorization header in here !!!!!!!!!!!!!!!!
     return request;

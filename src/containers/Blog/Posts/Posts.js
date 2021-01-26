@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 // getting axios from my own instance
 import axios from '../../../axios';
 import Post from '../../../components/Post/Post';
+import { Link } from 'react-router-dom';
 
 import './Posts.css';
 
@@ -12,6 +13,7 @@ class Posts extends Component{
     }
 
     componentDidMount(){
+        //console.log(this.props);
         // uses promises introduced in ES6, 
         axios.get('/posts')
             .then(response => {
@@ -41,11 +43,10 @@ class Posts extends Component{
 
         if(!this.state.error){
             posts = this.state.posts.map(post => {
-                return <Post 
-                    key={post.id} 
+                return <Link to={'/post/' + post.id} key={post.id} ><Post 
                     title={post.title} 
                     author={post.author}
-                    clicked={() => this.postSelectedHandler(post.id)} />;
+                    clicked={() => this.postSelectedHandler(post.id)} /></Link>;
             });
         }
 
