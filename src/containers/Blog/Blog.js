@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import Posts from './Posts/Posts';
 //import Post from '../../components/Post/Post';
@@ -16,13 +17,16 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/">New Post</a></li>
+                            <li><a href="/new-post">New Post</a></li>
                         </ul>
                     </nav>
                 </header>
-
-                <Posts />
+                {/* evaluates full apth to be exact the given path */}
+                <Route path="/" exact render={() => <Posts />} />
+                <Route path="/new-post" exact render={() => <h1>New Post</h1> }/>
                 {/* 
+
+
                 <section>
                     <FullPost 
                         id={this.state.selectedPostId}
