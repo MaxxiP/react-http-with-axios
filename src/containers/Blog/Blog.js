@@ -21,9 +21,12 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                {/* evaluates full apth to be exact the given path */}
+                {/* evaluates full apth to be exact the given path 
                 <Route path="/" exact render={() => <Posts />} />
                 <Route path="/new-post" exact render={() => <h1>New Post</h1> }/>
+                */}
+
+                <Route path="/" exact component={Posts} />
                 {/* 
 
 
